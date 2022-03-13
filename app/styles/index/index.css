@@ -1,0 +1,59 @@
+.screen {
+  min-height: 100vh;
+  background: #e2daff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.screen h1 {
+  font-size: 3rem;
+  color: #8b34dd;
+  text-transform: uppercase;
+}
+.screen .container {
+  position: relative;
+  margin-top: 2rem;
+}
+.screen .container input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80px;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 2.8rem;
+  letter-spacing: 80px;
+  padding-left: 1rem;
+}
+.screen .grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+.screen .grid .box {
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  border-radius: 5px;
+  height: 80px;
+  width: 80px;
+  background: #fff;
+  text-transform: uppercase;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+.screen .grid .btn-check {
+  grid-column: 1/6;
+  width: 100%;
+  background-color: #8b34dd;
+  color: white;
+  padding: 1rem;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+}
+
+/*# sourceMappingURL=index.css.map */

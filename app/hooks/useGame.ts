@@ -73,6 +73,8 @@ export default (word: string) => {
 
     if (word === currentValue) {
       setMessage("You guessed right!");
+    } else if (currentIndex >= 25) {
+      setMessage("You lost!");
     } else {
       setCurrentValue("");
       setCanContinue(false);

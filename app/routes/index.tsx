@@ -1,5 +1,6 @@
 import { LinksFunction, LoaderFunction, useLoaderData } from "remix";
 import useGame from "~/hooks/useGame";
+import wordList from "~/lib/wordList";
 
 import stylesUrl from "../styles/index/index.css";
 
@@ -8,8 +9,10 @@ export const links: LinksFunction = () => {
 };
 
 export const loader: LoaderFunction = () => {
+  const word = wordList[Math.floor(Math.random() * wordList.length)];
+
   return {
-    word: "today",
+    word,
   };
 };
 

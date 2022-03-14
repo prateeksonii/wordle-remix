@@ -39,35 +39,41 @@ export default (word: string) => {
       return;
     }
 
-    console.log(event);
+    if (/^\w$/.test(event.key)) {
+      console.log(event);
+      setCurrentValue(currentValue + event.key);
 
-    // FIXME: HANDLE KEYS OTHER THAN ALPHABETS
-    setCurrentValue(currentValue + event.key);
-
-    setLetters((letters) => {
-      const newLetters = [...letters];
-      newLetters[currentIndex] = {
-        ...newLetters[currentIndex],
-        value: event.key,
-        color: "white",
-      };
-      return newLetters;
-    });
-    setCurrentIndex(currentIndex + 1);
+      setLetters((letters) => {
+        const newLetters = [...letters];
+        newLetters[currentIndex] = {
+          ...newLetters[currentIndex],
+          value: event.key,
+          color: "white",
+        };
+        return newLetters;
+      });
+      setCurrentIndex(currentIndex + 1);
+    }
   };
 
   const handleCheck: MouseEventHandler<HTMLButtonElement> = () => {
+    // color code value, continue
+    console.log(currentIndex);
+    const newLetters = [...letters];
+    for (let i = 0; i < 5; i++) {
+      if (word[i] === currentValue[i]) {
+        console.log(currentIndex - 5 + i);
+        newLetters[currentIndex - 5 + i].color = "#0AF565";
+      } else if (word.includes(letters[currentIndex - 5 + i].value)) {
+        newLetters[currentIndex - 5 + i].color = "#F3FF00";
+      }
+    }
+
+    setLetters(newLetters);
+
     if (word === currentValue) {
       setMessage("You guessed right!");
     } else {
-      // color code value, continue
-
-      for (let i = 0; i < 5; i++) {
-        if (word[i] === currentValue[i]) {
-          // TODO: complete this
-        }
-      }
-
       setCurrentValue("");
       setCanContinue(false);
     }

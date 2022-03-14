@@ -25,7 +25,11 @@ export default function () {
       <div className="container">
         <div className="grid">
           {letters.map((letter, i) => (
-            <div key={i} className="box">
+            <div
+              key={i}
+              className="box"
+              style={{ backgroundColor: letter.color }}
+            >
               {letter.value}
             </div>
           ))}
